@@ -4,8 +4,9 @@
 <mapper namespace="com.blog.blog.mapper.BackUserMapper">
 
     <!-- 用户登录 -->
-    <select id="login" resultType="com.blog.blog.Bean.BackUser" parameterType="com.blog.blog.Bean.BackUser">
+    <select id="login" resultType="com.blog.blog.sys.entity.BackUser" parameterType="com.blog.blog.sys.entity.BackUser">
         select u.id,u.username,u.email from back_user u where username=#{username} and password =#{password}
     </select>
+
 
 </mapper>

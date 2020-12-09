@@ -1,4 +1,4 @@
-package com.blog.blog.Bean;
+package com.blog.blog.sys.entity;
 
 
 public class BackUser {

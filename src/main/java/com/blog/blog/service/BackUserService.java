@@ -1,6 +1,6 @@
 package com.blog.blog.service;
 
-import com.blog.blog.Bean.BackUser;
+import com.blog.blog.sys.entity.BackUser;
 import com.blog.blog.Bean.Result;
 import com.blog.blog.mapper.BackUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;

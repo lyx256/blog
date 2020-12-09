@@ -1,6 +1,6 @@
 package com.blog.blog.mapper;
 
-import com.blog.blog.Bean.BackUser;
+import com.blog.blog.sys.entity.BackUser;
 import org.apache.ibatis.annotations.Mapper;
 
 
