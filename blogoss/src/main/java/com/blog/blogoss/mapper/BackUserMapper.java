@@ -10,4 +10,6 @@ public interface BackUserMapper {
 
     BackUser login(BackUser backUser);
 
+    BackUser findUserByName(String username);
+
 }

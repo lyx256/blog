@@ -16,6 +16,9 @@ public class BackUserService {
     @Autowired
     private BackUserMapper backUserMapper;
 
+    @Autowired
+    private TokenService tokenService;
+
     public Result login(BackUser backUser){
         Result result = new Result();
         result.setSuccess(false);
@@ -27,10 +30,12 @@ public class BackUserService {
             }else {
                 result.setMsg("登录成功");
                 result.setSuccess(true);
+                String token = tokenService.getToken(backUser);
+
                 Map returnMap = new HashMap();
                 returnMap.put("id",user.getId());
                 returnMap.put("username",user.getUsername());
-                returnMap.put("email",user.getEmail());
+                returnMap.put("token",token);
                 result.setDetail(returnMap);
             }
         }catch (Exception e){
