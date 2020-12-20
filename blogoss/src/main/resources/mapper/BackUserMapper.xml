@@ -14,4 +14,70 @@
     </select>
 
 
+    <resultMap id="map" type="com.blog.blogoss.Bean.BackUser">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="nick_name" column="nick_name" />
+        <result property="email" column="email" />
+        <result property="phone_num" column="phone_num" />
+        <result property="spare1" column="spare1" />
+        <result property="spare2" column="spare2" />
+        <result property="spare3" column="spare3" />
+        <result property="spare4" column="spare4" />
+        <result property="spare5" column="spare5" />
+        <result property="creata_time" column="creata_time" />
+        <result property="update_time" column="update_time" />
+        <result property="work_group" column="work_group" />
+        <result property="login_num" column="login_num" />
+    </resultMap>
+
+    <!-- 添加用户 -->
+    <insert id="addUser" parameterType="com.blog.blogoss.Bean.BackUser">
+        INSERT INTO back_user(username,password,nick_name,email,phone_num,spare1,spare2,spare3,spare4,spare5,creata_time,work_group)
+        VALUES (#{username},#{password},#{nick_name},#{email},#{phone_num},#{spare1},#{spare2},#{spare3},#{spare4},#{spare5},NOW(),#{work_group})
+    </insert>
+
+    <!-- 删除用户 -->
+    <delete id="delUser" parameterType="com.blog.blogoss.Bean.BackUser">
+        DELETE
+        FROM
+        back_user
+        WHERE id in
+        <foreach collection="array" item="id" index="index" open="("
+                 separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- 修改用户信息   -->
+    <update id="updateUser" parameterType="com.blog.blogoss.Bean.BackUser">
+        update back_user
+        <set>
+            update_time=NOW(),
+            <if test="username!=null and username!='' ">
+                username=#{username},
+            </if>
+            <if test="password!=null and password!='' ">
+                password=#{password},
+            </if>
+            <if test="nick_name!=null and nick_name!=''">
+                nick_name=#{nick_name},
+            </if>
+            email=#{email},
+            phone_num=#{phone_num},
+            spare1=#{spare1},
+            spare1=#{spare2},
+            spare1=#{spare3},
+            spare1=#{spare4},
+            spare1=#{spare5},
+            work_group=#{work_group}
+        </set>
+        where id=#{id}
+    </update>
+
+
+
+
+
 </mapper>

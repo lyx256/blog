@@ -12,4 +12,14 @@ public interface BackUserMapper {
 
     BackUser findUserByName(String username);
 
+    //添加
+    Integer addUser(BackUser backUser);
+
+    //删除
+    void delUser(Integer[] id);
+
+    //修改
+    Integer updateUser(BackUser backUser);
+
+
 }

@@ -46,4 +46,15 @@ public class BackUserService {
     }
 
 
+    public Integer addUser(BackUser backUser){
+        return backUserMapper.addUser(backUser);
+    }
+    public void delUser(Integer[] id){
+        backUserMapper.delUser(id);
+    }
+
+    public Integer updateUser(BackUser backUser){
+        return backUserMapper.updateUser(backUser);
+    }
+
 }
